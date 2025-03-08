@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RecruiterAI</title>
+  <style>
+    /* Base Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #1a1a1a;
+      background-image: radial-gradient(#333 1px, transparent 0);
+      background-size: 20px 20px;
+      color: white;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Header Section */
+    .header {
+      display: flex;
+      background-color: #222;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .header-content {
+      flex: 1;
+      padding: 40px;
+    }
+
+    .logo {
+      width: 40px;
+      margin-bottom: 15px;
+    }
+
+    .header h1 {
+      font-size: 48px;
+      margin: 0 0 20px 0;
+    }
+
+    .header-tagline {
+      font-size: 20px;
+      color: #FFB74D;
+      margin: 0;
+    }
+
+    .header-image {
+      flex: 1;
+      background-color: #444;
+      position: relative;
+      min-height: 200px;
+    }
+
+    .header-image img {
+      width: 150%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.9;
+    }
+
+    /* Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    /* Card Styles */
+    .card {
+      background-color: #222;
+      border-radius: 8px;
+      padding: 24px;
+      height: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .card h2 {
+      font-size: 24px;
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+
+    .card p {
+      color: #bbb;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      background-color: #FF5722;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #FF7043;
+    }
+
+    /* Power Button */
+    .power-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      background-color: #333;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 100;
+    }
+
+    .power-btn:hover {
+      background-color: #444;
+    }
+
+    .power-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Background Elements */
+    .bg-hexagons {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      opacity: 0.15;
+      z-index: -1;
+    }
+
+    .bg-circuit {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      opacity: 0.15;
+      z-index: -1;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+      }
+      
+      .header-content {
+        padding: 30px;
+      }
+      
+      .header h1 {
+        font-size: 36px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Elements -->
+  <svg class="bg-hexagons" width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 L30,0 L45,26 L30,52 L0,52 L-15,26 Z" fill="none" stroke="#4a90e2" stroke-width="1" transform="translate(20, 20)"/>
+    <path d="M0,0 L30,0 L45,26 L30,52 L0,52 L-15,26 Z" fill="none" stroke="#4a90e2" stroke-width="1" transform="translate(65, 20)"/>
+    <path d="M0,0 L30,0 L45,26 L30,52 L0,52 L-15,26 Z" fill="none" stroke="#4a90e2" stroke-width="1" transform="translate(110, 20)"/>
+    <path d="M0,0 L30,0 L45,26 L30,52 L0,52 L-15,26 Z" fill="none" stroke="#4a90e2" stroke-width="1" transform="translate(42.5, 72)"/>
+    <path d="M0,0 L30,0 L45,26 L30,52 L0,52 L-15,26 Z" fill="none" stroke="#4a90e2" stroke-width="1" transform="translate(87.5, 72)"/>
+    <path d="M0,0 L30,0 L45,26 L30,52 L0,52 L-15,26 Z" fill="none" stroke="#4a90e2" stroke-width="1" transform="translate(20, 124)"/>
+    <path d="M0,0 L30,0 L45,26 L30,52 L0,52 L-15,26 Z" fill="none" stroke="#4a90e2" stroke-width="1" transform="translate(65, 124)"/>
+    <path d="M0,0 L30,0 L45,26 L30,52 L0,52 L-15,26 Z" fill="none" stroke="#4a90e2" stroke-width="1" transform="translate(110, 124)"/>
+    <path d="M0,0 L30,0 L45,26 L30,52 L0,52 L-15,26 Z" fill="none" stroke="#4a90e2" stroke-width="1" transform="translate(42.5, 176)"/>
+    <path d="M0,0 L30,0 L45,26 L30,52 L0,52 L-15,26 Z" fill="none" stroke="#4a90e2" stroke-width="1" transform="translate(87.5, 176)"/>
+    <path d="M0,0 L30,0 L45,26 L30,52 L0,52 L-15,26 Z" fill="none" stroke="#4a90e2" stroke-width="1" transform="translate(20, 228)"/>
+  </svg>
+
+  <svg class="bg-circuit" width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+    <line x1="320" y1="50" x2="380" y2="50" stroke="#4a90e2" stroke-width="1" />
+    <line x1="380" y1="50" x2="380" y2="120" stroke="#4a90e2" stroke-width="1" />
+    <line x1="380" y1="120" x2="350" y2="120" stroke="#4a90e2" stroke-width="1" />
+    <line x1="350" y1="120" x2="350" y2="180" stroke="#4a90e2" stroke-width="1" />
+    <line x1="350" y1="180" x2="380" y2="180" stroke="#4a90e2" stroke-width="1" />
+    <line x1="380" y1="180" x2="380" y2="250" stroke="#4a90e2" stroke-width="1" />
+    <circle cx="320" cy="50" r="3" fill="#4a90e2" />
+    <circle cx="350" cy="120" r="3" fill="#4a90e2" />
+    <circle cx="350" cy="180" r="3" fill="#4a90e2" />
+    <circle cx="380" cy="250" r="3" fill="#4a90e2" />
+  </svg>
+
+  <!-- Power Button -->
+  <div class="power-btn" id="powerBtn">
+    <svg class="power-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18.36 6.64C19.6184 7.89879 20.4753 9.50244 20.8223 11.2482C21.1693 12.9939 20.9909 14.8034 20.3096 16.4478C19.6284 18.0921 18.4748 19.4976 16.9948 20.4864C15.5148 21.4752 13.7749 22.0029 11.995 22.0029C10.2151 22.0029 8.47515 21.4752 6.99517 20.4864C5.51519 19.4976 4.36164 18.0921 3.68036 16.4478C2.99909 14.8034 2.82069 12.9939 3.16772 11.2482C3.51475 9.50244 4.37162 7.89879 5.63 6.64" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M12 2V12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <div class="header-content">
+        <svg class="logo" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 10H22V38H12V10Z" fill="white"/>
+          <path d="M26 10H36V38H26V10Z" fill="white"/>
+        </svg>
+        <h1>RecruiterAI</h1>
+        <p class="header-tagline">Revolutionize HR with AI-powered efficiency, engagement, and seamless processes</p>
+      </div>
+      <div class="header-image">
+        <img src="/api/placeholder/600/400" alt="HR AI Illustration">
+      </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="cards-grid">
+      <!-- Job Description Maker -->
+      <div class="card">
+        <h2>Job Description Maker</h2>
+        <p>An AI-powered tool that simplifies the process of creating comprehensive and tailored job descriptions, helping employers attract the right candidates and streamline the hiring process.</p>
+        <button class="btn">Generate Now!</button>
+      </div>
+
+      <!-- CV Analyzer -->
+      <div class="card">
+        <h2>CV Analyzer</h2>
+        <p>Tool that helps in Revolutionizing Recruitment through AI-Powered CV Ranking</p>
+        <button class="btn">Analyse Now!</button>
+      </div>
+
+      <!-- CV Fitment -->
+      <div class="card">
+        <h2>CV Fitment</h2>
+        <p>Tool that helps find best JD for your CV</p>
+        <button class="btn">Find Now!</button>
+      </div>
+
+      <!-- AI-Powered Interview -->
+      <div class="card">
+        <h2>AI-Powered Interview</h2>
+        <p>AI-powered Interview revolutionizes the hiring process by employing advanced algorithms to conduct automated interviews, assessing candidate's skills and personalities more objectively.</p>
+        <button class="btn">Start Interview!</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Card hover effects
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-5px)';
+          this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.5)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0)';
+          this.style.boxShadow = 'none';
+        });
+      });
+
+      // Power button functionality
+      const powerBtn = document.getElementById('powerBtn');
+      powerBtn.addEventListener('click', function() {
+        document.body.style.opacity = '0.5';
+        document.body.style.pointerEvents = 'none';
+        
+        setTimeout(() => {
+          document.body.style.opacity = '1';
+          document.body.style.pointerEvents = 'auto';
+        }, 1000);
+      });
+
+      // Button click effects
+      const buttons = document.querySelectorAll('.btn');
+      buttons.forEach(button => {
+        button.addEventListener('mousedown', function() {
+          this.style.transform = 'scale(0.95)';
+        });
+        
+        button.addEventListener('mouseup', function() {
+          this.style.transform = 'scale(1)';
+        });
+        
+        button.addEventListener('mouseleave', function() {
+          this.style.transform = 'scale(1)';
+        });
+        
+        button.addEventListener('click', function() {
+          alert('Feature coming soon!');
+        });
+      });
+
+      // Custom cursor (optional)
+      const cursor = document.createElement('div');
+      cursor.style.cssText = `
+        position: fixed;
+        width: 25px;
+        height: 15px;
+        border: 2px solid #FF5722;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        z-index: 9999;
+        transition: transform 0.1s, opacity 0.2s;
+        opacity: 0;
+      `;
+      document.body.appendChild(cursor);
+
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.top = e.clientY + 'px';
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.opacity = '1';
+      });
+
+      document.addEventListener('mousedown', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(0.8)';
+      });
+
+      document.addEventListener('mouseup', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+      });
+
+      document.addEventListener('mouseleave', () => {
+        cursor.style.opacity = '0';
+      });
+    });
+  </script>
+</body>
+</html>
