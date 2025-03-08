@@ -10,16 +10,74 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background-color: #1a1a1a;
+      background-color: #dbd1d1;
       background-image: radial-gradient(#333 1px, transparent 0);
       background-size: 20px 20px;
       color: white;
     }
 
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #222; /* Dark grey */
+      padding: 10px 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .logo {
+      width: 40px;
+    }
+
+    .navbar .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar .nav-links a:hover {
+      color: #FFB74D; /* Highlight color on hover */
+    }
+
+    /* Power Button in Nav Bar */
+    .power-btn {
+      background-color: #333;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .power-btn:hover {
+      background-color: #444;
+    }
+
+    .power-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Container */
     .container {
-      max-width: 1200px;
+      max-width: 1600px;
       margin: 0 auto;
       padding: 20px;
+      
     }
 
     /* Header Section */
@@ -35,11 +93,6 @@
     .header-content {
       flex: 1;
       padding: 40px;
-    }
-
-    .logo {
-      width: 40px;
-      margin-bottom: 15px;
     }
 
     .header h1 {
@@ -61,7 +114,7 @@
     }
 
     .header-image img {
-      width: 150%;
+      width: 100%;
       height: 100%;
       object-fit: cover;
       opacity: 0.9;
@@ -70,7 +123,7 @@
     /* Cards Grid */
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
 
@@ -78,8 +131,9 @@
     .card {
       background-color: #222;
       border-radius: 8px;
-      padding: 24px;
-      height: 100%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -110,35 +164,12 @@
       font-weight: bold;
       cursor: pointer;
       transition: background-color 0.3s ease;
+      margin-top: auto; /* Push button to the bottom */
+      align-self: flex-start; /* Align button to the left */
     }
 
     .btn:hover {
       background-color: #FF7043;
-    }
-
-    /* Power Button */
-    .power-btn {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      width: 40px;
-      height: 40px;
-      background-color: #333;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 100;
-    }
-
-    .power-btn:hover {
-      background-color: #444;
-    }
-
-    .power-icon {
-      width: 20px;
-      height: 20px;
     }
 
     /* Background Elements */
@@ -165,7 +196,7 @@
       }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 968px) {
       .header {
         flex-direction: column;
       }
@@ -182,6 +213,10 @@
     @media (max-width: 576px) {
       .cards-grid {
         grid-template-columns: 1fr;
+      }
+
+      .navbar .nav-links {
+        display: none; /* Hide nav links on small screens */
       }
     }
   </style>
@@ -215,38 +250,40 @@
     <circle cx="380" cy="250" r="3" fill="#4a90e2" />
   </svg>
 
-  <!-- Power Button -->
-  <div class="power-btn" id="powerBtn">
-    <svg class="power-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M18.36 6.64C19.6184 7.89879 20.4753 9.50244 20.8223 11.2482C21.1693 12.9939 20.9909 14.8034 20.3096 16.4478C19.6284 18.0921 18.4748 19.4976 16.9948 20.4864C15.5148 21.4752 13.7749 22.0029 11.995 22.0029C10.2151 22.0029 8.47515 21.4752 6.99517 20.4864C5.51519 19.4976 4.36164 18.0921 3.68036 16.4478C2.99909 14.8034 2.82069 12.9939 3.16772 11.2482C3.51475 9.50244 4.37162 7.89879 5.63 6.64" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M12 2V12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </div>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 10H22V38H12V10Z" fill="white"/>
+        <path d="M26 10H36V38H26V10Z" fill="white"/>
+      </svg>
+    </div>
+    <div class="nav-links">
+     
+    </div>
+    <div class="power-btn" id="powerBtn">
+      <svg class="power-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18.36 6.64C19.6184 7.89879 20.4753 9.50244 20.8223 11.2482C21.1693 12.9939 20.9909 14.8034 20.3096 16.4478C19.6284 18.0921 18.4748 19.4976 16.9948 20.4864C15.5148 21.4752 13.7749 22.0029 11.995 22.0029C10.2151 22.0029 8.47515 21.4752 6.99517 20.4864C5.51519 19.4976 4.36164 18.0921 3.68036 16.4478C2.99909 14.8034 2.82069 12.9939 3.16772 11.2482C3.51475 9.50244 4.37162 7.89879 5.63 6.64" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 2V12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </nav>
 
   <div class="container">
     <!-- Header -->
     <div class="header">
       <div class="header-content">
-        <svg class="logo" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 10H22V38H12V10Z" fill="white"/>
-          <path d="M26 10H36V38H26V10Z" fill="white"/>
-        </svg>
         <h1>RecruiterAI</h1>
         <p class="header-tagline">Revolutionize HR with AI-powered efficiency, engagement, and seamless processes</p>
       </div>
       <div class="header-image">
-        <img src="/api/placeholder/600/400" alt="HR AI Illustration">
+        <img src="Img/Navigating Global Talent Dynamics_ HR's Strategic Influence.jpeg" alt="HR AI Illustration" class="responsive-img">
       </div>
     </div>
 
     <!-- Cards Grid -->
     <div class="cards-grid">
-      <!-- Job Description Maker -->
-      <div class="card">
-        <h2>Job Description Maker</h2>
-        <p>An AI-powered tool that simplifies the process of creating comprehensive and tailored job descriptions, helping employers attract the right candidates and streamline the hiring process.</p>
-        <button class="btn">Generate Now!</button>
-      </div>
+      
 
       <!-- CV Analyzer -->
       <div class="card">
@@ -273,20 +310,6 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Card hover effects
-      const cards = document.querySelectorAll('.card');
-      cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-          this.style.transform = 'translateY(-5px)';
-          this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.5)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-          this.style.transform = 'translateY(0)';
-          this.style.boxShadow = 'none';
-        });
-      });
-
       // Power button functionality
       const powerBtn = document.getElementById('powerBtn');
       powerBtn.addEventListener('click', function() {
@@ -302,55 +325,9 @@
       // Button click effects
       const buttons = document.querySelectorAll('.btn');
       buttons.forEach(button => {
-        button.addEventListener('mousedown', function() {
-          this.style.transform = 'scale(0.95)';
-        });
-        
-        button.addEventListener('mouseup', function() {
-          this.style.transform = 'scale(1)';
-        });
-        
-        button.addEventListener('mouseleave', function() {
-          this.style.transform = 'scale(1)';
-        });
-        
         button.addEventListener('click', function() {
           alert('Feature coming soon!');
         });
-      });
-
-      // Custom cursor (optional)
-      const cursor = document.createElement('div');
-      cursor.style.cssText = `
-        position: fixed;
-        width: 25px;
-        height: 15px;
-        border: 2px solid #FF5722;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-        pointer-events: none;
-        z-index: 9999;
-        transition: transform 0.1s, opacity 0.2s;
-        opacity: 0;
-      `;
-      document.body.appendChild(cursor);
-
-      document.addEventListener('mousemove', (e) => {
-        cursor.style.top = e.clientY + 'px';
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.opacity = '1';
-      });
-
-      document.addEventListener('mousedown', () => {
-        cursor.style.transform = 'translate(-50%, -50%) scale(0.8)';
-      });
-
-      document.addEventListener('mouseup', () => {
-        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-      });
-
-      document.addEventListener('mouseleave', () => {
-        cursor.style.opacity = '0';
       });
     });
   </script>
