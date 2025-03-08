@@ -1,6 +1,6 @@
-# **Recruit AI**  
+# **RecruitAI**  
 
-🚀 **Recruit AI** is an AI-driven recruitment tool designed to streamline and automate candidate analysis. It integrates multiple Python files, utilizes environment variables, and runs within a **VS Code** development environment.  
+🚀 **RecruitAI** is an AI-driven recruitment tool designed to streamline and automate candidate analysis. It integrates multiple Python files, utilizes environment variables, and runs within a **VS Code** development environment.  
 
 ## **Project Structure**  
 
