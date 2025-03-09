@@ -1,6 +1,6 @@
-# **Recruit AI**  
+# **RecruiterAI**  
 
-Recruit AI is an **AI-driven recruitment tool** designed to simplify the hiring process by integrating resume parsing, job description (JD) analysis, and recruitment automation. The project is built using **Flask** and multiple Python scripts, allowing users to perform **data-driven hiring analysis** with ease.  
+RecruiterAI is an **AI-driven recruitment tool** designed to simplify the hiring process by integrating resume parsing, job description (JD) analysis, and recruitment automation. The project is built using **Flask** and multiple Python scripts, allowing users to perform **data-driven hiring analysis** with ease.  
 
 ## **Project Setup**  
 
