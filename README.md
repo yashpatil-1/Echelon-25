@@ -1,81 +1,70 @@
-# **RecruitAI**  
+# **Recruit AI**  
 
-🚀 **RecruitAI** is an AI-driven recruitment tool designed to streamline and automate candidate analysis. It integrates multiple Python files, utilizes environment variables, and runs within a **VS Code** development environment.  
+Recruit AI is an **AI-driven recruitment tool** designed to simplify the hiring process by integrating resume parsing, job description (JD) analysis, and recruitment automation. The project is built using **Flask** and multiple Python scripts, allowing users to perform **data-driven hiring analysis** with ease.  
+
+## **Project Setup**  
+
+### **Step 1: Extract the ZIP File**  
+1. Download the provided ZIP file.  
+2. Extract it to your preferred directory.  
+
+### **Step 2: Set Up the Virtual Environment**  
+Navigate to the project folder and run the following commands:  
+
+```sh
+# Create a virtual environment (if not already present)
+python -m venv venv
+
+# Activate the virtual environment
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### **Step 3: Running the Project**  
+#### **Method 1: Using Flask Run (Preferred)**  
+```sh
+flask run
+```
+#### **Method 2: Running app.py Directly**  
+If the above command doesn’t work, try:  
+```sh
+python app.py
+```
+After running either of these commands, **a local host link will be generated**. Click on it to access the **Recruit AI web interface**.  
 
 ## **Project Structure**  
 
 ```
 RecruitAI/
-│── __pycache__/
-│── .venv/
-│── CV's and JD's/            # Contains resumes (CVs) and job descriptions (JDs)
-│── JD Form Template/         # Predefined templates for JDs
-│── src/                      # Core source files
-│── static/                   # Static assets (CSS, JS, images)
-│── templates/                # HTML templates for rendering
-│── video/                    # Video-related assets (if any)
-│── .env                      # Environment variables
-│── .gitignore                # Git ignore file
-│── app.py                    # Main application file (Flask server)
-│── issue-relay-tokens.py      # Script for handling tokens
-│── requirements.txt           # Project dependencies
-│── variable_loader.py         # Handles environment variable loading
+│── __pycache__/             # Compiled Python files
+│── .venv/                   # Virtual environment
+│── CV's and JD's/           # Resumes and job descriptions
+│── JD Form Template/        # JD input templates
+│── src/                     # Core application source code
+│── static/                  # Static files (CSS, JS, images)
+│── templates/               # HTML templates for Flask
+│── video/                   # Video assets (if any)
+│── .env                     # Environment variables for secure API integration
+│── .gitignore               # Excludes sensitive files
+│── app.py                   # Main application entry point
+│── issue-relay-tokens.py    # Handles token management
+│── requirements.txt         # Dependencies
+│── variable_loader.py       # Loads environment variables
+│── README.md                # Project documentation
 ```
 
-## **Tech Stack**  
+## **Technologies Used**  
+- **Python** (Flask)  
+- **HTML, CSS, JavaScript** (for the frontend)  
+- **Virtual Environment (venv)**  
+- **Git for version control**  
 
-- **Backend:** Python (Flask)  
-- **Frontend:** HTML, CSS, JavaScript  
-- **APIs & Libraries:** OpenAI API, Pandas, Flask, and more  
 
-## **Installation & Setup**  
+---
 
-1. **Clone the repository:**  
-   ```bash
-   git clone https://github.com/YOUR_GITHUB_USERNAME/RecruitAI.git
-   cd RecruitAI
-   ```
-
-2. **Create & activate a virtual environment:**  
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # For Mac/Linux
-   venv\Scripts\activate     # For Windows
-   ```
-
-3. **Install dependencies:**  
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Set up environment variables:**  
-   - Create a `.env` file in the project root.  
-   - Add necessary API keys and configuration settings.  
-
-5. **Run the application:**  
-   ```bash
-   flask run
-   ```
-   If Flask does not work, try:  
-   ```bash
-   python app.py
-   ```
-
-6. **Access the application:**  
-   - The app runs on **`http://127.0.0.1:5000/`**  
-   - Click the localhost link to access the website.  
-
-## **Features**  
-
-✅ AI-powered candidate screening  
-✅ Job description and CV analysis  
-✅ User-friendly web interface  
-✅ Secure token-based authentication  
-
-## **Contributing**  
-
-Feel free to fork the repo, submit issues, or contribute improvements!  
-
-## **License**  
-
-📝 MIT License  
+Let me know if you want any additional modifications! 🚀
